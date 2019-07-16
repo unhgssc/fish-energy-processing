@@ -9,9 +9,9 @@
 import os, csv
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
-OUTPUT_FILENAME = "simplified_results.csv"
+OUTPUT_FILENAME = "simplified_results_070219.csv"
 OUTPUT_FILE = os.path.join(BASE_DIR, OUTPUT_FILENAME)
-RUN_FOLDER = os.path.join(BASE_DIR, "successful_result_csv/results_csv")
+RUN_FOLDER = os.path.join(BASE_DIR, "results_csv")
 
 DATA_DERIVE_METHODS = {
     'Time': None,
@@ -21,8 +21,8 @@ DATA_DERIVE_METHODS = {
     'lamprey spawner output': {'Time':54750},
     'total dam removal cost': {'Time':54750},
     'total fishway installation cost': {'Time':54750},
-    'total energy generation': {'Sum and Divide':15},
-    'total energy revenue': {'Sum and Divide':15},
+    'total energy generation': {'Sum and Divide':150},
+    'total energy revenue': {'Sum and Divide':150},
 }
 
 with open(OUTPUT_FILE, 'wb+') as outfile:
@@ -80,12 +80,10 @@ with open(OUTPUT_FILE, 'wb+') as outfile:
                             #print("length of data for variable: {} len: {}".format(variable, len(cells)))
                             # NOTE: since we pop the first cell we have to adjust our array access
                             value = float(cells[(method['Time'] - 1)])
-                            row.append(
-                                    value
-                            )
-                            if (variable == 'total dam removal cost'):
-                                if (value != 0.0):
-                                    print("variable: {} value: {}".format(variable, value))
+                            row.append(value)
+                            #if (variable == 'total dam removal cost'):
+                            #    if (value != 0.0):
+                            #        print("variable: {} value: {}".format(variable, value))
 
                         elif 'Sum and Divide' in method:
                             total = sum(float(cell) for cell in cells)

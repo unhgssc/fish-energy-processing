@@ -34,7 +34,7 @@ do
 	eval "mv /cygdrive/e/fish-energy-tradeoff-vensim/run-$RunNumber.cmd /cygdrive/e/fish-energy-tradeoff-vensim/batch_process_commands/run-$RunNumber.cmd"
 
 	eval "rm /cygdrive/e/fish-energy-tradeoff-vensim/fish-energy-run-$RunNumber.vdf"
-done < MissingRunRecords.csv
+done < MissingRunRecords3.csv
 
 
 
